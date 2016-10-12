@@ -1,0 +1,48 @@
+[
+   {
+      "department":"工程研发部门",
+      "positions":[
+         {
+            "position":"Mac 开发工程师",
+            "number":9
+         },
+         {
+            "position":"iOS App 测试工程师",
+            "number":17
+         },
+         {
+            "position":"Android 远程控制工程师",
+            "number":61
+         },
+         {
+            "position":"Web 前端工程师",
+            "number":31
+         },
+         {
+            "position":"Android 多媒体软件开发工程师",
+            "number":2
+         }
+      ]
+   },
+   {
+      "department":"产品设计部门",
+      "positions":[
+         {
+            "position":"网页设计师",
+            "number":47
+         },
+         {
+            "position":"ID/工业设计师",
+            "number":39
+         },
+         {
+            "position":"视觉设计师/GUI 界面设计师",
+            "number":42
+         },
+         {
+            "position":"平面设计师",
+            "number":8
+         }
+      ]
+   }
+]
