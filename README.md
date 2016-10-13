@@ -30,6 +30,14 @@ npm run build
 2. Build the dev environment and being familiar wit React ESLint for 1 hour. **Wed 21:00 ~ Wed 22:00**
 3. Developing on the React exercise. **Wed.22:00 ~ Wed.23:00 && Thu.19:00 ~ Fri.00:30**
 
+# Todo
+
+1. Expand/collapse the positions list.
+2. The total positions counter be interactive with toggle position checkbox.
+3. Add text input zone for adding department && job position.
+4. Remove a job position.
+5. Run a simple http server for responsing ajax requests.
+
 # Liscense
 
 Feel free to do whatever with it.
