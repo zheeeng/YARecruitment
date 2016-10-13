@@ -26,7 +26,7 @@ module.exports = {
     loaders: [
       { test: /\.jsx?$/, include: SRC_DIR, exclude: /node_modules/, loader: 'babel' },
       { test: /\.scss$/, include: SRC_DIR, exclude: /node_modules/, loaders: ["style", "css", "sass"] },
-      { test: /\.json$/, include: SRC_DIR, exclude: /node_modules/, loader: 'json'},
+      { test: /\.json$/, include: SRC_DIR, exclude: /node_modules/, loader: 'json'}
     ]
   },
   plugins: [
