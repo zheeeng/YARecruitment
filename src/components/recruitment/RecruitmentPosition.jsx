@@ -19,7 +19,7 @@ let RecruitmentPosition = React.createClass({
           <i className={'recruitment-entry_checkbox fa fa-' + (this.props.checked ? 'check-' : '') + 'square-o'} />
           <span className='recruitment-entry_name'>{this.props.position}</span>
         </label>
-        <span className='recruitment-entry_count wings_item wings_item__right3r highlight'>{this.props.number}</span>
+        <span className='recruitment-entry_count highlight wings_item wings_item__right3r highlight'>{this.props.number}</span>
       </div>
     )
     return (
