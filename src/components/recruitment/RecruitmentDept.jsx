@@ -8,21 +8,29 @@ let RecruitmentDept = React.createClass({
     positions: React.PropTypes.array
   },
   getInitialState () {
-    return {check: false, count: 0}
+    return {checked: false, count: 0, checedkPositions: []}
   },
   componentDidMount () {
-    this.setState({count: this.props.positions.map(v => v.number).reduce((a, b) => +a + +b)})
+    this.setState({
+      count: this.props.positions.map(v => v.number).reduce((a, b) => +a + +b),
+      checedkPositions: this.props.positions.map(v => false)
+    })
   },
   handleDepartmentChange (e) {
-    var newCheckState = !this.state.check
-    this.setState({check: newCheckState})
+    var newCheckedState = !this.state.checked
+    this.setState({checked: newCheckedState})
+  },
+  positionChange (index, bool) {
+    var checedkPositions = this.state.checedkPositions.slice()
+    checedkPositions[index] = bool
+    this.setState({checedkPositions})
   },
   render () {
     var departmentEntry = (
       <div className='recruitment-entry wings_box wings_box__right3r'>
         <label className='recruitment-entry_checkbar highlight wings_item wings_item__main'>
-          <input type='checkbox' className='input-hide' checked={this.state.check} onChange={this.handleDepartmentChange} />
-          <i className={'recruitment-entry_checkbox fa fa-' + (this.state.check ? 'check-' : '') + 'square-o'} />
+          <input type='checkbox' className='input-hide' checked={this.state.checked} onChange={this.handleDepartmentChange} />
+          <i className={'recruitment-entry_checkbox fa fa-' + (this.state.checked ? 'check-' : '') + 'square-o'} />
           <span className='recruitment-entry_name highlight'>{this.props.department}</span>
           <i className='recruitment-entry_expand highlight fa fa-angle-down' />
         </label>
@@ -30,9 +38,9 @@ let RecruitmentDept = React.createClass({
       </div>
     )
 
-    var positions = this.props.positions.map(position => (
+    var positions = this.props.positions.map((position, index) => (
       <li key={position.id}>
-        <RecruitmentPosition position={position.position} number={position.number} />
+        <RecruitmentPosition position={position.position} number={position.number} index={index} checked={this.state.checedkPositions[index] || false} positionChange={this.positionChange} />
       </li>
     ))
 
