@@ -41,6 +41,12 @@ let RecruitmentDept = React.createClass({
       this.setState({checedkPositions})
     }
   },
+  clearAllPositions () {
+    this.setState({
+      checked: false,
+      checedkPositions: this.state.checedkPositions.map(v => false)
+    })
+  },
   render () {
     var departmentEntry = (
       <div className='recruitment-entry wings_box wings_box__right3r'>
