@@ -6,10 +6,10 @@ let RecruitmentPosition = React.createClass({
     number: React.PropTypes.number,
     index: React.PropTypes.number,
     checked: React.PropTypes.bool,
-    positionChange: React.PropTypes.func
+    onPositionChange: React.PropTypes.func
   },
   handlePositionChange (e) {
-    this.props.positionChange(this.props.index, !this.props.checked)
+    this.props.onPositionChange(this.props.index, !this.props.checked)
   },
   render () {
     var positionEntry = (

@@ -18,12 +18,28 @@ let RecruitmentDept = React.createClass({
   },
   handleDepartmentChange (e) {
     var newCheckedState = !this.state.checked
-    this.setState({checked: newCheckedState})
+    if (newCheckedState) {
+      this.setState({
+        checked: newCheckedState,
+        checedkPositions: this.state.checedkPositions.map(v => true)
+      })
+    } else {
+      this.setState({
+        checked: newCheckedState,
+        checedkPositions: this.state.checedkPositions.map(v => false)
+      })
+    }
   },
   positionChange (index, bool) {
     var checedkPositions = this.state.checedkPositions.slice()
     checedkPositions[index] = bool
-    this.setState({checedkPositions})
+    if (!~checedkPositions.indexOf(false) && !this.state.checked) {
+      this.setState({checked: true, checedkPositions})
+    } else if (!~checedkPositions.indexOf(true) && this.state.checked) {
+      this.setState({checked: false, checedkPositions})
+    } else {
+      this.setState({checedkPositions})
+    }
   },
   render () {
     var departmentEntry = (
@@ -40,7 +56,7 @@ let RecruitmentDept = React.createClass({
 
     var positions = this.props.positions.map((position, index) => (
       <li key={position.id}>
-        <RecruitmentPosition position={position.position} number={position.number} index={index} checked={this.state.checedkPositions[index] || false} positionChange={this.positionChange} />
+        <RecruitmentPosition position={position.position} number={position.number} index={index} checked={this.state.checedkPositions[index] || false} onPositionChange={this.positionChange} />
       </li>
     ))
 
