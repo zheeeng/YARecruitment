@@ -1,5 +1,3 @@
-import 'styles/app.scss'
-
 import React from 'react'
 
 import Recruitment from 'components/recruitment/Recruitment'

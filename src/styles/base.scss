@@ -1,1 +1,127 @@
-@import "~normalize.css/normalize.css"
+@import "~normalize.css/normalize.css";
+
+@import "~styles/variables.scss";
+@import "~styles/mixins.scss";
+
+@import "~styles/app.scss";
+@import "~styles/recruitment.scss";
+
+body {
+  font-size: 16px;
+  font-family: Hiragino Sans GB, Lantinghei SC, Open Sans, Arial, Microsoft YaHei, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// wings layout
+.wings {
+  // wings_box
+  &_box {
+    @extend %clearfix;
+
+    &__left20 {
+      padding-left: 20px;
+    }
+    &__right20 {
+      padding-right: 20px;
+    }
+    &__both20 {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    &__left25 {
+      padding-left: 25px;
+    }
+    &__right25 {
+      padding-right: 25px;
+    }
+    &__both25 {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+
+    &__left30 {
+      padding-left: 30px;
+    }
+    &__right30 {
+      padding-right: 30px;
+    }
+    &__both30 {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    &__left3r {
+      padding-left: 3rem;
+    }
+    &__right3r {
+      padding-right: 3rem;
+    }
+    &__both3r {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  // wings_item
+  &_item {
+    float: left;
+
+    &__main {
+      width: 100%;
+    }
+
+    &__left20 {
+      width: 20px;
+      margin-left: -20px;
+    }
+    &__right20 {
+      width: 20px;
+      margin-right: -20px;
+    }
+
+    &__left25 {
+      width: 25px;
+      margin-left: -25px;
+    }
+    &__right25 {
+      width: 25px;
+      margin-right: -25px;
+    }
+
+    &__left30 {
+      width: 30px;
+      margin-left: -30px;
+    }
+    &__right30 {
+      width: 30px;
+      margin-right: -30px;
+    }
+
+    &__left3r {
+      width: 3rem;
+      margin-left: -3rem;
+    }
+    &__right3r {
+      width: 3rem;
+      margin-right: -3rem;
+    }
+
+  }
+
+}
+
+.input-hide {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: none;
+}
+
+.wings_siderbar {
+  float: left;
+}

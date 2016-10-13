@@ -3,7 +3,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 300px;
+    width: $left-box-width;
     overflow: hidden;
   }
   &_rightsider {
@@ -11,7 +11,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    left: 300px;
+    left: $left-box-width;
     overflow: hidden;
   }
 }
