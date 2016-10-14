@@ -1,14 +1,16 @@
 var webpack = require('webpack');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var path = require('path');
 
 var SRC_DIR = path.resolve(__dirname, 'src');
+var DIST_DIRNAME = 'dist';
 
 module.exports = {
   entry: SRC_DIR + '/main.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, DIST_DIRNAME),
     filename: 'bundle.js',
-    publicPath: 'dist'
+    publicPath: DIST_DIRNAME
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
@@ -30,6 +32,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new CopyWebpackPlugin([
+        { from: 'index.html'},
+        { from: 'vendors', to: 'vendors'}
+      ]
+    )
   ]
 };
