@@ -31,7 +31,7 @@ class RecruitmentPosition extends React.Component {
   }
 }
 
-RecruitmentPosition.prototype.propTypes = {
+RecruitmentPosition.propTypes = {
   position: React.PropTypes.string,
   number: React.PropTypes.number,
   index: React.PropTypes.number,
