@@ -9,8 +9,7 @@ module.exports = {
   entry: SRC_DIR + '/main.js',
   output: {
     path: path.resolve(__dirname, DIST_DIRNAME),
-    filename: 'bundle.js',
-    publicPath: DIST_DIRNAME
+    filename: 'bundle.js'
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
