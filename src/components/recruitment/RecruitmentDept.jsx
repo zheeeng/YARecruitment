@@ -2,20 +2,23 @@ import React from 'react'
 
 import RecruitmentPosition from 'components/recruitment/RecruitmentPosition'
 
-let RecruitmentDept = React.createClass({
-  propTypes: {
-    department: React.PropTypes.string,
-    positions: React.PropTypes.array
-  },
-  getInitialState () {
-    return {checked: false, count: 0, checedkPositions: []}
-  },
+class RecruitmentDept extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {checked: false, count: 0, checedkPositions: []}
+    this.handleDepartmentChange = this.handleDepartmentChange.bind(this)
+    this.positionChange = this.positionChange.bind(this)
+    this.clearAllPositions = this.clearAllPositions.bind(this)
+  }
+
   componentDidMount () {
     this.setState({
       count: this.props.positions.map(v => v.number).reduce((a, b) => +a + +b),
       checedkPositions: this.props.positions.map(v => false)
     })
-  },
+  }
+
+  // <!-- custom methods
   handleDepartmentChange (e) {
     var newCheckedState = !this.state.checked
     if (newCheckedState) {
@@ -29,7 +32,8 @@ let RecruitmentDept = React.createClass({
         checedkPositions: this.state.checedkPositions.map(v => false)
       })
     }
-  },
+  }
+
   positionChange (index, bool) {
     var checedkPositions = this.state.checedkPositions.slice()
     checedkPositions[index] = bool
@@ -40,13 +44,16 @@ let RecruitmentDept = React.createClass({
     } else {
       this.setState({checedkPositions})
     }
-  },
+  }
+
   clearAllPositions () {
     this.setState({
       checked: false,
       checedkPositions: this.state.checedkPositions.map(v => false)
     })
-  },
+  }
+  // custom methods -->
+
   render () {
     var departmentEntry = (
       <div className='recruitment-entry wings_box wings_box__right3r'>
@@ -75,6 +82,11 @@ let RecruitmentDept = React.createClass({
       </div>
     )
   }
-})
+}
+
+RecruitmentDept.propTypes = {
+  department: React.PropTypes.string,
+  positions: React.PropTypes.array
+}
 
 export default RecruitmentDept

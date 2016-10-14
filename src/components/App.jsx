@@ -2,7 +2,7 @@ import React from 'react'
 
 import Recruitment from 'components/recruitment/Recruitment'
 
-let App = React.createClass({
+class App extends React.Component {
   render () {
     return (
       <div className='app'>
@@ -13,6 +13,6 @@ let App = React.createClass({
       </div>
     )
   }
-})
+}
 
 export default App

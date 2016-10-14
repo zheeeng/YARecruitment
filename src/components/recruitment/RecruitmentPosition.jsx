@@ -1,16 +1,17 @@
 import React from 'react'
 
-let RecruitmentPosition = React.createClass({
-  propTypes: {
-    position: React.PropTypes.string,
-    number: React.PropTypes.number,
-    index: React.PropTypes.number,
-    checked: React.PropTypes.bool,
-    onPositionChange: React.PropTypes.func
-  },
+class RecruitmentPosition extends React.Component {
+  constructor (props) {
+    super(props)
+    this.handlePositionChange = this.handlePositionChange.bind(this)
+  }
+
+  // <!-- custom methods
   handlePositionChange (e) {
     this.props.onPositionChange(this.props.index, !this.props.checked)
-  },
+  }
+  // custom methods -->
+
   render () {
     var positionEntry = (
       <div className='recruitment-entry wings_box wings_box__right3r'>
@@ -28,6 +29,14 @@ let RecruitmentPosition = React.createClass({
       </div>
     )
   }
-})
+}
+
+RecruitmentPosition.prototype.propTypes = {
+  position: React.PropTypes.string,
+  number: React.PropTypes.number,
+  index: React.PropTypes.number,
+  checked: React.PropTypes.bool,
+  onPositionChange: React.PropTypes.func
+}
 
 export default RecruitmentPosition
