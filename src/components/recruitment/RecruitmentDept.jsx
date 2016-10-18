@@ -3,12 +3,14 @@ import React from 'react'
 import RecruitmentPosition from 'components/recruitment/RecruitmentPosition'
 
 class RecruitmentDept extends React.Component {
+  static propTypes = {
+    department: React.PropTypes.string,
+    positions: React.PropTypes.array
+  }
+
   constructor (props) {
     super(props)
     this.state = {checked: false, count: 0, checedkPositions: []}
-    this.handleDepartmentChange = this.handleDepartmentChange.bind(this)
-    this.positionChange = this.positionChange.bind(this)
-    this.clearAllPositions = this.clearAllPositions.bind(this)
   }
 
   componentDidMount () {
@@ -18,8 +20,7 @@ class RecruitmentDept extends React.Component {
     })
   }
 
-  // <!-- custom methods
-  handleDepartmentChange (e) {
+  handleDepartmentChange = (e) => {
     var newCheckedState = !this.state.checked
     if (newCheckedState) {
       this.setState({
@@ -34,7 +35,7 @@ class RecruitmentDept extends React.Component {
     }
   }
 
-  positionChange (index, bool) {
+  positionChange = (index, bool) => {
     var checedkPositions = this.state.checedkPositions.slice()
     checedkPositions[index] = bool
     if (!~checedkPositions.indexOf(false) && !this.state.checked) {
@@ -46,13 +47,12 @@ class RecruitmentDept extends React.Component {
     }
   }
 
-  clearAllPositions () {
+  clearAllPositions = () => {
     this.setState({
       checked: false,
       checedkPositions: this.state.checedkPositions.map(v => false)
     })
   }
-  // custom methods -->
 
   render () {
     var departmentEntry = (
@@ -82,11 +82,6 @@ class RecruitmentDept extends React.Component {
       </div>
     )
   }
-}
-
-RecruitmentDept.propTypes = {
-  department: React.PropTypes.string,
-  positions: React.PropTypes.array
 }
 
 export default RecruitmentDept

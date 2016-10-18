@@ -3,16 +3,9 @@ import React from 'react'
 import RecruitmentList from 'components/recruitment/RecruitmentList'
 
 class Recruitment extends React.Component {
-  constructor (props) {
-    super(props)
-    this.handleClearCheckbox = this.handleClearCheckbox.bind(this)
-  }
-
-  // <!-- custom methods
-  handleClearCheckbox () {
+  handleClearCheckbox = () => {
     this._recruitment_list.clearCheckbox()
   }
-  // custom methods -->
 
   render () {
     return (

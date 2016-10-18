@@ -1,16 +1,17 @@
 import React from 'react'
 
 class RecruitmentPosition extends React.Component {
-  constructor (props) {
-    super(props)
-    this.handlePositionChange = this.handlePositionChange.bind(this)
+  static propTypes = {
+    position: React.PropTypes.string,
+    number: React.PropTypes.number,
+    index: React.PropTypes.number,
+    checked: React.PropTypes.bool,
+    onPositionChange: React.PropTypes.func
   }
 
-  // <!-- custom methods
-  handlePositionChange (e) {
+  handlePositionChange = (e) => {
     this.props.onPositionChange(this.props.index, !this.props.checked)
   }
-  // custom methods -->
 
   render () {
     var positionEntry = (
@@ -29,14 +30,6 @@ class RecruitmentPosition extends React.Component {
       </div>
     )
   }
-}
-
-RecruitmentPosition.propTypes = {
-  position: React.PropTypes.string,
-  number: React.PropTypes.number,
-  index: React.PropTypes.number,
-  checked: React.PropTypes.bool,
-  onPositionChange: React.PropTypes.func
 }
 
 export default RecruitmentPosition

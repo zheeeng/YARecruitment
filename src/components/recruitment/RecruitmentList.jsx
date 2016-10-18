@@ -5,20 +5,13 @@ import data from 'src/data.json'
 import RecruitmentDept from 'components/recruitment/RecruitmentDept'
 
 class RecruitmentList extends React.Component {
-  constructor (props) {
-    super(props)
-    this.clearCheckbox = this.clearCheckbox.bind(this)
-  }
-
-  // <!-- custom methods
-  clearCheckbox () {
+  clearCheckbox = () => {
     if (Array.isArray(this._recruitment_depart)) {
       this._recruitment_depart.forEach(depart => {
         depart.clearAllPositions()
       })
     }
   }
-  // custom methods -->
 
   render () {
     var recruitmentDepartments = data.map((department, index) => {
