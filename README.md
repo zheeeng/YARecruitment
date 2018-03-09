@@ -1,5 +1,7 @@
 # Yet Another Recruitment
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zheeeng/YARecruitment.svg)](https://greenkeeper.io/)
+
 # Online Demo
 
 <https://blog.zheeeng.me/YARecruitment/>
